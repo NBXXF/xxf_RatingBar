@@ -12,6 +12,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RatingBar;
 
+import androidx.annotation.DrawableRes;
+
 
 public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
 
@@ -141,6 +143,20 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
         }
     }
 
+    /**
+     * 会重置属性,请在动态设置其他方法之前调用
+     * 需要调用@{@link #setStarColor(int)} {@link #setBgColor(int)}
+     *
+     * @param right2Left
+     */
+    public void setRight2Left(boolean right2Left) {
+        this.right2Left = right2Left;
+    }
+
+    /**
+     * 设置进度着色
+     * @param starColor
+     */
     public void setStarColor(int starColor) {
         if (right2Left) {
             mBgColor = ColorStateList.valueOf(starColor);
@@ -150,6 +166,10 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
         applyProgressTints();
     }
 
+    /**
+     * 设置背景着色
+     * @param bgColor
+     */
     public void setBgColor(int bgColor) {
         if (right2Left) {
             mStarColor = ColorStateList.valueOf(bgColor);
@@ -157,6 +177,20 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
             mBgColor = ColorStateList.valueOf(bgColor);
         }
         applyProgressTints();
+    }
+
+    /**
+     * 设置自定义图标
+     *
+     * @param mStarDrawable
+     * @param bgDrawable
+     */
+    public void setCustomerDrawable(@DrawableRes int mStarDrawable, @DrawableRes int bgDrawable) {
+        this.mStarDrawable = mStarDrawable;
+        this.mBgDrawable = bgDrawable;
+        mDrawable = new StarDrawable(getContext(), mStarDrawable, mBgDrawable, mKeepOriginColor);
+        mDrawable.setStarCount(getNumStars());
+        setProgressDrawable(mDrawable);
     }
 
     @Override
