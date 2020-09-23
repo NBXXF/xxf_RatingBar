@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
@@ -140,6 +141,24 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
         }
     }
 
+    public void setStarColor(int starColor) {
+        if (right2Left) {
+            mBgColor = ColorStateList.valueOf(starColor);
+        } else {
+            mStarColor = ColorStateList.valueOf(starColor);
+        }
+        applyProgressTints();
+    }
+
+    public void setBgColor(int bgColor) {
+        if (right2Left) {
+            mStarColor = ColorStateList.valueOf(bgColor);
+        } else {
+            mBgColor = ColorStateList.valueOf(bgColor);
+        }
+        applyProgressTints();
+    }
+
     @Override
     public void setNumStars(int numStars) {
         super.setNumStars(numStars);
@@ -163,7 +182,7 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
         applyProgressTints();
     }
 
-    private void applyProgressTints() {
+    protected void applyProgressTints() {
         if (getProgressDrawable() == null) {
             return;
         }
