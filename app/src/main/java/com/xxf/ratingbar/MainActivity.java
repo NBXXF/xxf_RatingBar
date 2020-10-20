@@ -5,7 +5,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.xxf.view.ratingbar.XXFRatingBar;
 
@@ -21,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
                         ratingBar.setStarColor(Color.RED);
                         ratingBar.setBgColor(Color.BLACK);
+
+                        ratingBar.setRating(7);
                     }
                 });
         findViewById(R.id.test2)

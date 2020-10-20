@@ -138,8 +138,15 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
         mDrawable.setStarCount(getNumStars());
         setProgressDrawable(mDrawable);
 
+        setRating(getRating());
+    }
+
+    @Override
+    public void setRating(float rating) {
         if (right2Left) {
-            setRating(getNumStars() - getRating());
+            super.setRating(getNumStars() - rating);
+        } else {
+            super.setRating(rating);
         }
     }
 
@@ -155,6 +162,7 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
 
     /**
      * 设置进度着色
+     *
      * @param starColor
      */
     public void setStarColor(int starColor) {
@@ -168,6 +176,7 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
 
     /**
      * 设置背景着色
+     *
      * @param bgColor
      */
     public void setBgColor(int bgColor) {
