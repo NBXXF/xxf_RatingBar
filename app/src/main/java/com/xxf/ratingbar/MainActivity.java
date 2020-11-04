@@ -1,5 +1,6 @@
 package com.xxf.ratingbar;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -24,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        ratingBar.setStarColor(Color.RED);
-                        ratingBar.setBgColor(Color.BLACK);
 
-                        ratingBar.setRating(7);
+                        ratingBar.setStarColor(Color.RED);
+                        ratingBar.setBgColor(getResources().getColor(R.color.c10_alpha_10));
+
+                        ratingBar.setRating(4);
+                        //startActivity(new Intent(view.getContext(), MainActivity.class));
                     }
                 });
         findViewById(R.id.test2)

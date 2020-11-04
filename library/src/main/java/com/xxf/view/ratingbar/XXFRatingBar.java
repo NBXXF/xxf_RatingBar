@@ -162,6 +162,7 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
 
     /**
      * 设置进度着色
+     * 这个转换 有透明度的颜色 会有问题
      *
      * @param starColor
      */
@@ -174,9 +175,18 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
         applyProgressTints();
     }
 
+    public void setStarColor(ColorStateList starColor) {
+        if (right2Left) {
+            mBgColor = starColor;
+        } else {
+            mStarColor = starColor;
+        }
+        applyProgressTints();
+    }
+
     /**
      * 设置背景着色
-     *
+     *这个转换 有透明度的颜色 会有问题
      * @param bgColor
      */
     public void setBgColor(int bgColor) {
@@ -184,6 +194,20 @@ public class XXFRatingBar extends androidx.appcompat.widget.AppCompatRatingBar {
             mStarColor = ColorStateList.valueOf(bgColor);
         } else {
             mBgColor = ColorStateList.valueOf(bgColor);
+        }
+        applyProgressTints();
+    }
+
+    /**
+     * 设置背景着色
+     *
+     * @param bgColor
+     */
+    public void setBgColor(ColorStateList bgColor) {
+        if (right2Left) {
+            mStarColor = bgColor;
+        } else {
+            mBgColor = bgColor;
         }
         applyProgressTints();
     }

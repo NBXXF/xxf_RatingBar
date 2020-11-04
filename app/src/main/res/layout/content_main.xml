@@ -15,22 +15,25 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="4dp"
+        android:enabled="false"
+        android:isIndicator="true"
         android:rating="4"
-        app:bgColor="#dfdfdf"
+        app:bgColor="@color/xxf_rea"
         app:right2Left="true"
         app:starColor="@android:color/holo_green_dark"
         app:starDrawable="@drawable/ic_rating_star_flower"
         app:starSpacing="0dp" />
+
     <Button
         android:id="@+id/test"
-        android:text="改变颜色"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="改变颜色" />
 
     <Button
         android:id="@+id/test2"
-        android:text="改变图标"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="改变图标" />
 
 </LinearLayout>
