@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/c10_alpha_10"
+        android:src="@mipmap/ic_heart_add_selected" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/c10_alpha_10"
+        android:src="@mipmap/ic_heart_add_selected" />
 
     <include layout="@layout/content_main" />
+
+
 </LinearLayout>
